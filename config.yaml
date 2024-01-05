@@ -1,0 +1,59 @@
+---
+title: "Tech Justice Law Project"
+baseURL: "https://techjusticelaw.org/"
+theme: "zen"
+languageCode: "en-GB"
+defaultContentLanguage: "en"
+pluralizelisttitles: false
+removePathAccents: true
+paginate: 10
+paginatePath: "page"
+rssLimit: 20
+author:
+  name: ""
+  url: ""
+  avatar: ""
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+outputFormats:
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
+
+module:
+  imports:
+  - path: github.com/hugo-mods/icons
+  
+
+outputs:
+  home: ["HTML","RSS", "JSON", "SearchIndex"]
+  section: ["HTML","RSS", "JSON"]
+
+params:
+  contact: "contact@techjusticelaw.org"
+  description: "The Law Project that'll change the world."
+  dateformat: "January 2, 2006"
+  favicon: "apple-touch-icon.png"
+  feedlinks: false
+  icon: "apple-touch-icon.png"
+  image: "apple-touch-icon.png"
+  logo: true
+  imageMaxWidth: 400
+  logoWidth: 150
+  logoPath: "images/logo.png"
+  mobileMenu: true
+  poweredby: false
+  realfavicongenerator: true
+  sidebar: false
+  submitted: true
+  themeColor: #33FF33
+  menuInHeader: true
+  siteName: false 
+  footer: "[Data and privacy policy](/data-privacy-policy/) | [Terms of Use](/terms-of-use/) | [Credits](/credit/)"
+  mainSections:             # The sections you want to have listed on the front page.
+ 
+

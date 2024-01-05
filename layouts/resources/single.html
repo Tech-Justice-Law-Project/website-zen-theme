@@ -1,0 +1,96 @@
+{{ define "main" -}}
+<main id="content" class="stage__main main layout__main" data-stage>
+<article class="{{ with .Section }}section-{{ . | urlize }} {{ end }}single-view">
+<section class="para para--head para--col-xxl theme-darkest" data-section-theme="dark">
+  <div class="para__wrap contain reveal is-revealed">
+    <div class="para__content">
+      <div class="resource-head">
+        {{ if .Params.tags }}<div class="resource-head__type">{{ partial "tags.html" . }}</div>{{ end }}
+        <h1 class="resource-head__title">{{ .Title }}</h1>
+        {{ if .Params.image -}}
+        <div class="resource-head__image">
+          <div class="surface surface--1-1">
+            <div class="surface__plane">
+              {{ $original := resources.Get .Params.image -}}
+              {{ $image := $original.Fill "590x590" }}
+              <img class="surface__image" alt="Decorative image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
+            </div>
+          </div>
+        </div>
+        {{ end -}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resource-block para para--article para--col-xxl para--article theme-lightest" data-section-theme="light">
+  <div class="para__wrap contain">
+    <article class="para__content">
+      <div class="resource-block__wrapper para__body rte">
+        <div class="reveal resource-block__item resource-block__item--text editable">
+          {{ .Content }}
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+{{ with .Params.files -}}
+{{ if (index (index . 0) "title") -}}
+<section class="para para--assets para--col-xxl theme-lightest" data-section-theme="light">
+  <div class="para__wrap contain reveal">
+    <div class="para__content">
+      <div class="para__title">
+        <h2>Download assets</h2>
+      </div>
+      <div class="para__body">
+        <ul class="assets">
+          {{ range . -}}
+            {{ if (and .title .url) }}
+            <li class="assets__item">
+            <div class="asset">
+              <div class="asset__content">
+                <div class="asset__title">{{ .title }}</div>
+              </div>
+              <a class="asset-link" href="{{ absURL .url }}" target="_blank" rel="noopener noreferrer"> <svg class="asset-link__icon icon icon--download"><use xlink:href="#download"></use></svg></a>
+            </div>
+            </li>
+            {{ end -}}
+          {{ end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end -}}
+{{ end -}}
+
+{{ with .Params.links -}}
+{{ if (index (index . 0) "title") -}}
+<section class="para para--external para--col-xxl theme-lightest" data-section-theme="light">
+  <div class="para__wrap contain reveal">
+    <div class="para__content">
+      <div class="para__title">
+        <h2>Useful links</h2>
+      </div>
+      <div class="para__body">
+        <ul class="links links--external">
+          {{ range . -}}
+            {{ if (and .title .url) }}
+            <li class="links__item"><a href="{{ absURL .url }}" class="card-link card-link--sm" target="_blank" rel="noopener noreferer">
+              <span class="card-link__drop"><span class="card-link__label">{{ .title }}</span> <svg class="card-link__icon icon icon--arrow"><use xlink:href="#arrow"></use></svg></span></a>
+            </li>
+            {{ end -}}
+          {{ end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a href="/resources/"><use xlink:href="#back"></use></svg></i>Back to Resources</a>
+</section>
+{{ end -}}
+{{ end -}}
+
+</article>
+</main>
+{{ end }}

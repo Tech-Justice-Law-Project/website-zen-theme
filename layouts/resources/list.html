@@ -1,0 +1,39 @@
+{{ define "main" -}}
+<main id="content" class="stage__main main layout__main" data-stage>
+<section>
+  <div class="para__wrap contain reveal is-revealed">
+    <div class="para__content">
+      <div class="para__title"><h1 class="title">{{ .Title }}</h1></div>
+      {{ with .Content }}<div class="para__body">{{ . }}</div>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="para para--primary para--cards theme-darkest">
+  <div class="para__wrap contain reveal is-revealed">
+    <div class="para__content">
+      <div id="cards-list" class="para__body">
+        {{ if $.Param "listsort" -}}
+        <div class="filter">
+          <label for="news-filter">Filter Resources by category:</label>
+          <select class="select__field font-size-md news-tags" id="news-filter">
+            <option value="">-- Select category --</option>
+            {{ range site.Taxonomies.tags -}}
+            <option value="{{ .Page.Title }}">{{ .Page.Title }}</option>
+            {{ end -}}
+          </select>
+        </div>
+        {{ end -}}
+        <div class="cards">
+          {{ range .Pages.ByDate.Reverse -}}
+          {{ .Render "card"}}
+          {{ end -}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+</main>
+{{ end }}

@@ -1,0 +1,5 @@
+github.com/FortAwesome/Font-Awesome v0.0.0-20210316185733-d79d85c3fad8/go.mod h1:IUgezN/MFpCDIlFezw3L8j83oeiIuYoj28Miwr/KUYo=
+github.com/frjo/hugo-theme-zen/v3 v3.8.0 h1:ETo8FWAoRxXVmIgqVb0FuYoAXmtIA5sZYyE23rXagdM=
+github.com/frjo/hugo-theme-zen/v3 v3.8.0/go.mod h1:hwFwwEwrOoL2Z8t11M3jqQyr0yOp7tpBRnp58S6gPYk=
+github.com/hugo-mods/icons v0.0.0-20220508080705-d938a1900b1c h1:BHTy85KaX2uQnC+1i5NRVAxiJNOwpIwQXlY/zpLD6zA=
+github.com/hugo-mods/icons v0.0.0-20220508080705-d938a1900b1c/go.mod h1:sPodUyqumOYz75PKIwmqOYZXLIcLAujn7V9+1Hk4VW8=
